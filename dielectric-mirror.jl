@@ -15,7 +15,7 @@ function PeriodicDielectricMirror(λ::Float64, λ₀::Float64 = 550e-9, θ_::Flo
 	M = [ [	cos(δₓ) 		1im*sin(δₓ)/nₓ;
 			1im*sin(δₓ)*nₓ	cos(δₓ)			] for (δₓ, nₓ) in zip(δ, n)]
 
-	# https://de.wikipedia.org/wiki/Bragg-Spiegel (solve final equation component wise), see also Optics Sheet 10
+	# https://de.wikipedia.org/wiki/Bragg-Spiegel (solve final equation component wise)
 	v₁, v₂ = [n₀ -1; n₀ 1] * prod(M) * [1, ns]
 	R = abs2(v₁/v₂)
 
